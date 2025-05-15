@@ -9,14 +9,14 @@ let goatsCaught = 0;
 
 function preload() {
   // Load the bodyPose model
-  bodyPose = ml5.bodyPose();
+  bodyPose = ml5.bodyPose("MoveNet", {flipped = true});
 }
 
 function setup() {
-  createCanvas(windowWidth, windowWidth/(640/480));
+  createCanvas(windowWidth, windowHeight);
 
   // Create the video and hide it
-  video = createCapture(VIDEO);
+  video = createCapture(VIDEO, {flipped = true});
   video.size(windowWidth, windowWidth/(640/480));
   video.hide();
   
@@ -73,7 +73,7 @@ function draw() {
           // line(rx, ry, lx, ly);
           let distance = dist(rx, ry, lx, ly);
           if (goat.isTouched(pose.right_wrist) || goat.isTouched(pose.left_wrist)) {
-            goat.reveal(map(distance, 0, 600, 30, 60));
+            goat.reveal(map(distance, 0, 600, 30, 80));
             // Update caught goat number
             goatsCaught ++;
             } 
@@ -82,14 +82,14 @@ function draw() {
           else if (pose.right_wrist.confidence > 0.1) {
           // circle(rx, ry, 20);
           if (goat.isTouched(pose.right_wrist)) {
-          goat.reveal(20);
+          goat.reveal(30);
           goatsCaught ++;
           } 
           } 
           else if (pose.left_wrist.confidence > 0.1) {
           // circle(lx, ly, 20);
           if (goat.isTouched(pose.left_wrist)) {
-          goat.reveal(20);
+          goat.reveal(30);
           goatsCaught ++;
           } 
           }
