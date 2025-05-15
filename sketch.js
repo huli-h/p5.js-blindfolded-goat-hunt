@@ -6,17 +6,18 @@ let poses = [];
 let connections;
 let isDetecting;
 let goatsCaught = 0;
+let camRatio = 640/480;
 
 function preload() {
   // Load the bodyPose model
-  bodyPose = ml5.bodyPose("MoveNet", {flipped = true});
+  bodyPose = ml5.bodyPose("MoveNet", {flipped : true});
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowWidth/camRatio);
 
   // Create the video and hide it
-  video = createCapture(VIDEO, {flipped = true});
+  video = createCapture(VIDEO, {flipped : true});
   video.size(width, height);
   video.hide();
   
