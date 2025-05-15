@@ -6,6 +6,7 @@ let poses = [];
 let connections;
 let isDetecting;
 let goatsCaught = 0;
+let camRatio = 640/480;
 
 function preload() {
   // Load the bodyPose model
@@ -13,11 +14,11 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowWidth/camRatio);
 
   // Create the video and hide it
   video = createCapture(VIDEO, {flipped = true});
-  video.size(windowWidth, windowWidth/(640/480));
+  video.size(width, height);
   video.hide();
   
   // Create button to start/stop detecting
