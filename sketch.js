@@ -14,7 +14,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowWidth/camRatio);
 
   // Create the video and hide it
   video = createCapture(VIDEO, {flipped : true});
@@ -124,4 +124,8 @@ function clickButton() {
       goats.push(new Goat(random(width), random(height), 30));
   }
   }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowWidth/camRatio);
 }
