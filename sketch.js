@@ -13,11 +13,11 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowWidth/(640/480));
 
   // Create the video and hide it
   video = createCapture(VIDEO);
-  video.size(windowWidth, windowHeight);
+  video.size(windowWidth, windowWidth/(640/480));
   video.hide();
   
   // Create button to start/stop detecting
@@ -47,7 +47,7 @@ function draw() {
     textWrap(WORD);
     textFont("Courier New");
     textSize(30);
-    text("\n\n\nBỊT MẮT BẮT DÊ (BLINDFOLDED GOAT HUNT):\nGoats are moving around but you can't see them. Move your hand(s) to touch and catch goats. Open your arms to catch bigger goats. \n\nClick the top left button to start/stop catching goats.", 100, 200, width-200);
+    text("\n\n\nBỊT MẮT BẮT DÊ (BLINDFOLDED GOAT HUNT):\nGoats are moving around but you can't see them. Stay 3-4 steps from the screen, then move your hand(s) to touch and catch goats. Open your arms to catch bigger goats. \n\nClick the top left button to start/stop catching goats.", 100, 200, width-200);
     pop();
     
     textSize(30);
