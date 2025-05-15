@@ -14,7 +14,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowWidth/camRatio);
+  createCanvas(windowWidth, windowHeight);
 
   // Create the video and hide it
   video = createCapture(VIDEO, {flipped : true});
